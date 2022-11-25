@@ -53,9 +53,10 @@ namespace MyAwesomeWebApi.Controllers
 
         [AllowAnonymous]
         [HttpGet("TestConnection")]
-        public async Task<ActionResult<UserResponseModel>> TestConnection()
+        public async Task<ActionResult> TestConnection()
         {
-            var result = _authService.TestConnection();
+            var result = await _authService.TestConnectionAsync();
+
             return Ok($"Test: {result}" );
         }
 

@@ -25,14 +25,15 @@ namespace MyAwesomeWebApi.DataStore
             }
         }
 
-        public string TestConnection()
+        public async Task<string> TestConnectionAsync()
         {
             try
             {
+                await Task.Delay(0);
                 using (var sqlConnection = new MySqlConnection(_connectionString))
                 {
                     sqlConnection.Open();
-                    return $"Connection Open";
+                    return $"Connection successfull";
                 }
             }
             catch (Exception e)
